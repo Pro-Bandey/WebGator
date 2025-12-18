@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "WebGator",
+  "description": "Floating navigation bar in intalled chrome apps  with back, forward, and reload options.",
+  "version": "7.5",
+  "author": "MicroResearch Corporation®",
+  "incognito": "split",
+  "permissions": ["tabs", "activeTab", "scripting"],
+  "action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "256": "icons/icon.png"
+    }
+  },
+  "icons": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "256": "icons/icon.png"
+    },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
