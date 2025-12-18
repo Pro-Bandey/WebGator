@@ -6,7 +6,7 @@
   opacity: 0;
   pointer-events: none;
   display: flex;
-  flex-direction: column !important;
+  flex-direction: row !important;
   gap: 12px;
   padding: 10px 16px;
   border-radius: 16px;
