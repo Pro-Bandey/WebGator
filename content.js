@@ -1,25 +1,8 @@
 (() => {
   const TOP_TRIGGER_HEIGHT = 60;
-  const CENTER_TRIGGER_WIDTH = 180;
+  const CENTER_TRIGGER_WIDTH = 120;
   const HIDE_DELAY = 200;
   const START_PAGE = "https://homepage-gamma-dun.vercel.app/";
-
-  const ALLOWED_HOSTS = [
-    "google.com",
-    "github.com",
-    "youtube.com",
-    "vercel.app",
-    "chatgpt.com",
-    "facebook.com",
-    "meta.ai",
-    "claude.com",
-    "whatsapp.com",
-    "canva.com",
-    "x.com",
-    "instagram.com",
-    "linkedin.com",
-    "openai.com",
-  ];
 
   const isDesktop =
     !("ontouchstart" in window) &&
@@ -27,7 +10,6 @@
     window.innerWidth >= 1024;
 
   if (!isDesktop) return;
-  if (!ALLOWED_HOSTS.some((h) => location.hostname.includes(h))) return;
   if (document.getElementById("floating-nav")) return;
 
   const nav = document.createElement("div");
