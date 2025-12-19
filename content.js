@@ -1,6 +1,6 @@
 (() => {
   const TOP_TRIGGER_HEIGHT = 60;
-  const CENTER_TRIGGER_WIDTH = 120;
+  const CENTER_TRIGGER_WIDTH = 100;
   const HIDE_DELAY = 200;
   const START_PAGE = "https://homepage-gamma-dun.vercel.app/";
 
