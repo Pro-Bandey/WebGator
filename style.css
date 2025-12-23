@@ -51,6 +51,18 @@
   transform: scale(.92);
 }
 
+#floating-nav .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: currentColor transparent transparent transparent;
+  opacity: 0.6;
+}
+
 /* Tooltips */
 .tooltip {
   position: absolute;
@@ -58,8 +70,6 @@
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   opacity: 0;
-  background: #0000006b;
-  color: #fff;
   padding: 5px 10px;
   font-size: 0.8rempx;
   border-radius: 8px;
