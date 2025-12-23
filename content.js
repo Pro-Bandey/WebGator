@@ -96,8 +96,7 @@
 
     for (let i = 1; i <= steps; i++) {
       const item = document.createElement("div");
-      item.textContent =
-        type === "back" ? `⬅ Back ${i}` : `➡ Forward ${i}`;
+      item.textContent = type === "back" ? `⬅ Back ${i}` : `➡ Forward ${i}`;
       item.onclick = () => {
         history.go(type === "back" ? -i : i);
         hideMenu();
@@ -135,6 +134,12 @@
   new MutationObserver(applyTheme).observe(document.documentElement, {
     subtree: true,
     attributes: true,
+  });
+  nav.querySelectorAll(".tooltip").forEach((t) => {
+    t.style.background = bright > 180 ? "#000000cc" : "#ffffffee";
+    t.style.color = bright > 180 ? "#fff" : "#000";
+    t.style.border =
+      bright > 180 ? "1px solid #ffffff22" : "1px solid #00000022";
   });
 
   /* ---------- HELPERS ---------- */

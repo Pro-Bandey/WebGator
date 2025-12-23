@@ -58,7 +58,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   opacity: 0;
-  background: rgba(0,0,0,.85);
+  background: #0000006b;
   color: #fff;
   padding: 5px 10px;
   font-size: 0.8rempx;
