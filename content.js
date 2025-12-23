@@ -128,13 +128,14 @@
 
     menu.style.background = bright > 180 ? "#fff" : "#222";
     menu.style.color = bright > 180 ? "#000" : "#fff";
+
+    nav.querySelectorAll(".tooltip").forEach((t) => {
+      t.style.color = bright > 180 ? "#000" : "#fff";
+      t.style.background = bright > 180 ? "#ffffff22" : "#00000022";
+      t.style.backdropFilter = "blur(14px) saturate(180%)";
+    });
   }
-  nav.querySelectorAll(".tooltip").forEach((t) => {
-    t.style.background = bright > 180 ? "#000000cc" : "#ffffffee";
-    t.style.color = bright > 180 ? "#fff" : "#000";
-    t.style.border =
-      bright > 180 ? "1px solid #ffffff22" : "1px solid #00000022";
-  });
+
   applyTheme();
   new MutationObserver(applyTheme).observe(document.documentElement, {
     subtree: true,
