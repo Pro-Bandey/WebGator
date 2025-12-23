@@ -3,6 +3,7 @@
   const CENTER_TRIGGER_WIDTH = 100;
   const HIDE_DELAY = 200;
   const START_PAGE = "https://online-homepage.vercel.app/";
+  const MAX_HISTORY_STEPS = 10;
 
   const isDesktop =
     !("ontouchstart" in window) &&
@@ -12,6 +13,7 @@
   if (!isDesktop) return;
   if (document.getElementById("floating-nav")) return;
 
+  /* ---------- NAV ---------- */
   const nav = document.createElement("div");
   nav.id = "floating-nav";
   nav.innerHTML = `
@@ -19,8 +21,14 @@
     ${btn("forward", "Go forward", iconForward())}
     ${btn("reload", "Reload page", iconReload())}
     ${btn("home", "Open Home", iconHome())}
+    ${btn("close", "Close tab", iconClose())}
   `;
   document.body.appendChild(nav);
+
+  /* ---------- HISTORY MENU ---------- */
+  const menu = document.createElement("div");
+  menu.id = "nav-history-menu";
+  document.body.appendChild(menu);
 
   let hideTimer,
     lastScroll = window.scrollY;
@@ -28,9 +36,9 @@
   const toggleNav = (show) => nav.classList.toggle("show", show);
 
   document.addEventListener("mousemove", (e) => {
-    const centerX = window.innerWidth / 2;
     const nearTop = e.clientY <= TOP_TRIGGER_HEIGHT;
-    const nearCenter = Math.abs(e.clientX - centerX) <= CENTER_TRIGGER_WIDTH;
+    const nearCenter =
+      Math.abs(e.clientX - window.innerWidth / 2) <= CENTER_TRIGGER_WIDTH;
 
     clearTimeout(hideTimer);
     nearTop && nearCenter
@@ -44,6 +52,7 @@
     lastScroll = y;
   });
 
+  /* ---------- CLICK ACTIONS ---------- */
   nav.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
@@ -56,24 +65,70 @@
       forward: () => history.forward(),
       reload: () => location.reload(),
       home: () => (location.href = START_PAGE),
+      close: () => {
+        window.close();
+        setTimeout(() => alert("Tab close blocked by browser"), 200);
+      },
     })[btn.dataset.action]?.();
   });
 
-  // ===== Adaptive Theme =====
+  /* ---------- RIGHT-CLICK HISTORY ---------- */
+  nav.addEventListener("contextmenu", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    if (!["back", "forward"].includes(btn.dataset.action)) return;
+
+    e.preventDefault();
+    buildHistoryMenu(btn.dataset.action, e.clientX, e.clientY);
+  });
+
+  function buildHistoryMenu(type, x, y) {
+    menu.innerHTML = "";
+    menu.style.display = "block";
+    menu.style.left = x + "px";
+    menu.style.top = y + "px";
+
+    const steps = Math.min(history.length - 1, MAX_HISTORY_STEPS);
+    if (steps <= 0) {
+      menu.innerHTML = `<div class="disabled">No history</div>`;
+      return;
+    }
+
+    for (let i = 1; i <= steps; i++) {
+      const item = document.createElement("div");
+      item.textContent =
+        type === "back" ? `⬅ Back ${i}` : `➡ Forward ${i}`;
+      item.onclick = () => {
+        history.go(type === "back" ? -i : i);
+        hideMenu();
+      };
+      menu.appendChild(item);
+    }
+  }
+
+  function hideMenu() {
+    menu.style.display = "none";
+  }
+
+  document.addEventListener("click", hideMenu);
+  window.addEventListener("blur", hideMenu);
+
+  /* ---------- THEME ---------- */
   function applyTheme() {
     const bg = getComputedStyle(document.body).backgroundColor;
     const rgb = bg.match(/\d+/g)?.map(Number) || [255, 255, 255];
     const bright = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
 
-    nav.style.background = bright > 180 ? "#c9c9c959" : "#5c5c5c47";
+    nav.style.background = bright > 180 ? "#dcdcdc66" : "#1e1e1e66";
     nav.style.backdropFilter = "blur(14px) saturate(180%)";
-    nav.style.boxShadow = bright > 180 ? "0px 0px 10px -4px" : "0 0 0 0";
 
     nav.querySelectorAll("button").forEach((b) => {
-      b.style.background =
-        bright > 180 ? "#b9b9b95c" : "#ffffff70";
+      b.style.background = bright > 180 ? "#ffffffaa" : "#2b2b2baa";
       b.style.color = bright > 180 ? "#000" : "#fff";
     });
+
+    menu.style.background = bright > 180 ? "#fff" : "#222";
+    menu.style.color = bright > 180 ? "#000" : "#fff";
   }
 
   applyTheme();
@@ -82,7 +137,7 @@
     attributes: true,
   });
 
-  // ===== Helpers =====
+  /* ---------- HELPERS ---------- */
   function btn(action, tip, svg) {
     return `
       <button data-action="${action}">
@@ -93,15 +148,18 @@
   }
 
   function iconBack() {
-    return `<svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6" /></svg>`;
+    return `<svg viewBox="0 0 24 24"><path d="M14 6l-6 6 6 6"/></svg>`;
   }
   function iconForward() {
-    return `<svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6" /></svg>`;
+    return `<svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6"/></svg>`;
   }
   function iconReload() {
-    return `<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6" /></svg>`;
+    return `<svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6"/></svg>`;
   }
   function iconHome() {
-    return `<svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" /></svg>`;
+    return `<svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9h-6v-6H9v6H3z"/></svg>`;
+  }
+  function iconClose() {
+    return `<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6l-12 12"/></svg>`;
   }
 })();
