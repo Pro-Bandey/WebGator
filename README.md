@@ -6,7 +6,7 @@
 
 
 <p  style="align:left;">
-A simple Chrome extension that provides a floating navigation bar with **Back**, **Forward**, and **Reload** **Home** buttons. The navigation bar appears when the user's mouse hovers near the top of the page. It's a great tool to easily navigate between pages without having to use the browser's built-in navigation buttons.
+A simple Chrome extension that provides a floating navigation bar with **Back**, **Forward**,  **Reload**, **Home**, and **Close** buttons. The navigation bar appears when the user's mouse hovers near the top of the page. It's a great tool to easily navigate between pages without having to use the browser's built-in navigation buttons.
 </p>
 
 
@@ -15,7 +15,11 @@ A simple Chrome extension that provides a floating navigation bar with **Back**,
 - **Back Button**: Navigate back to the previous page in history.
 - **Forward Button**: Go forward to the next page in history.
 - **Reload Button**: Reload the current page.
+- **Home Button**: Change current tab in our online version [homepage](https://online-homepage.vercel.app/)
+- **Close Button**: Close Current tab if you open else if chrome Open
 - The floating navigation bar appears when the mouse cursor is within 50px of the top of the page.
+
+## [Takea full Overview](https://github.com/Pro-Bandey/WebGator/blob/main/Overview.md)
 
 ## Installation
 
