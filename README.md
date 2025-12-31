@@ -25,8 +25,9 @@ If you like this project give this  repo a star ⭐ and we very thankful if you 
 
 ## Installation
 
-### 1. Download the Extension Files
-Create a folder on your computer and save the following files inside the folder:
+- **[Download](https://github.com/Pro-Bandey/WebGator/releases)** Latest Version **or**
+- clone this clone via desktop, cli or **or**
+Create a folder on your computer and save, copy, or download the following files inside the folder:
 
 * `WebGator/`
   - `|__manifest.json`
