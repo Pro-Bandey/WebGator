@@ -9,6 +9,8 @@
 A simple Chrome extension that provides a floating navigation bar with **Back**, **Forward**,  **Reload**, **Home**, and **Close** buttons. The navigation bar appears when the user's mouse hovers near the top of the page. It's a great tool to easily navigate between pages without having to use the browser's built-in navigation buttons.
 </p>
 
+## Give a Star ⭐ 
+If you like this project give this  repo a star ⭐ and we very thankful if you give this repo a star ⭐ 
 
 ## Features
 
@@ -51,3 +53,14 @@ Create a folder on your computer and save the following files inside the folder:
 - The extension uses a **content script** that adds a floating navigation div to every page you visit.
 - The navigation bar is only shown when the mouse is near the top of the page, providing a clean and unobtrusive experience.
 - It uses basic **JavaScript** to handle user actions on the buttons (back, forward, reload) and **CSS** to style and position the floating div.
+
+## OnwerShip
+- If you able publish our project in WebStore, Firefox add-on or edge add-on, you don't able to remove our identity completely
+- 50% ownership is our in you version of our property to show our identity 
+- If you make new changes like
+  - features
+  - improvements
+  - UI design
+  - resources
+- You are responsible create pr to main repo
+- then we like that changes we 5ake them for nnext version of WebGator1
