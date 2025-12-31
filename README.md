@@ -19,7 +19,7 @@ A simple Chrome extension that provides a floating navigation bar with **Back**,
 - **Close Button**: Close Current tab if you open else if chrome Open
 - The floating navigation bar appears when the mouse cursor is within 50px of the top of the page.
 
-## [Takea full Overview](https://github.com/Pro-Bandey/WebGator/blob/main/Overview.md)
+## [Take a full Overview](https://github.com/Pro-Bandey/WebGator/blob/main/Overview.md)
 
 ## Installation
 
