@@ -1,138 +1,103 @@
 # WebGator — Features & Overview
 
-
 <div align="center" id="top"> 
-  <img style="width:130px; border-radius:50%" src="./icons/icon.png" alt="WebGator" />
+  <img style="width:130px; border-radius:50%" src="./src/icon.png" alt="WebGator" />
+  <h3>Universal Browser Navigation Suite</h3>
 </div>
 
+---
+
+## 🚀 Overview
+
+WebGator is a high-performance, **Manifest V3** navigation extension that replaces clunky browser toolbars with a sleek, adaptive interface. Now rebuilt with a modular architecture, it supports **Chrome, Edge, and Firefox (Desktop & Mobile)**, offering a truly native feel that evolves with the website you are browsing.
 
 ---
 
-## Overview
+## 🧭 Core Navigation
 
-A **desktop-only floating browser navigation bar** that appears only when needed, adapts to website themes, and enhances navigation speed without clutter.
-
----
-
-## Core Features
-
-### 🧭 Smart Navigation
-
-* Back
-* Forward
-* Reload
-* Home (custom start page)
-
-All actions use native browser APIs.
+- **Back/Forward:** Smooth page traversal.
+- **Reload:** Instant page refresh.
+- **Home:** User-configurable start page via the settings menu.
+- **Close:** Quick tab termination (where browser policy allows).
 
 ---
 
-### 🎯 Intelligent Visibility
+## 🛠 Advanced Display Modes
 
-* Appears only when cursor reaches **top-center** of the page
-* Auto-hides after inactivity
-* Hides on scroll-down, reappears on scroll-up
+WebGator now offers two distinct behaviors to suit your workflow:
 
+### 1. Floating Mode (Draggable)
 
----
+- **Persistence:** Drag the bar anywhere; WebGator remembers the exact `(x, y)` coordinates for every domain.
+- **Boundary Intelligence:** Prevents the UI from being dragged off-screen.
+- **Non-Intrusive:** Floats above content without shifting the page layout.
 
-### 🎨 Adaptive Theme Engine
+### 2. Static Mode (Adaptive Top Bar)
 
-* Detects page brightness
-* Automatically switches between light and dark styles
-* Prevents blending with page UI
-* Maintains strong contrast at all times
-
-#### Dark View
-![Light Theme](./icons/Shot-1.png)
-#### Light View
-![Dark Theme](./icons/Shot-2.png)
+- **Document Shifting:** Automatically pushes the website content down (using smart `margin-top` logic) to ensure WebGator never covers the site's original header or navigation.
+- **Auto-Hide Logic:** Slides out of view after 1.5 seconds of inactivity to maximize screen real estate.
+- **Edge Reveal:** Simply move your cursor to the top edge of the screen or scroll up to bring the bar back.
 
 ---
 
-### ✨ Modern UI / UX
+## 🎨 Contextual Color Extraction (Theme Engine 2.0)
 
-* Glassmorphism container (blur + saturation)
-* Smooth fade & slide animation
-* Micro-interactions (hover, tap, press)
-* SVG icons (crisp at any DPI)
+WebGator doesn't just switch between "Light" and "Dark." It **adopts the soul of the website**:
 
-
----
-
-### 💬 Tooltips (All Buttons)
-
-* Hover-based tooltip reveal
-* Context-aware labels
-* Right-click / long-hover support
-* Non-blocking, lightweight tooltips
-
+- **Native Adoption:** Analyzes the page's dominant background color and adjusts its own transparency, border, and icon contrast to match.
+- **Glassmorphism:** High-end backdrop blur and saturation filters for a premium "OS-native" aesthetic.
+- **Dynamic Updates:** Monitors page changes (like dark mode toggles) and updates its theme in real-time.
 
 ---
 
-## How To Use
+## 📱 Mobile & Cross-Browser Ready
 
-### 1️⃣ Normal Browsing
-
-Toolbar stays hidden.
-
-### 2️⃣ Reveal Toolbar
-
-Move cursor to the **top center** of the screen.
-
-### 3️⃣ Navigate
-
-Click any SVG icon to perform navigation instantly.
-
-### 4️⃣ Tooltip Help
-
-Hover or right-click icons for instant hints.
+- **Firefox Mobile (Android):** Fully optimized for touch. Includes `touchstart/move` listeners for smooth dragging on mobile browsers.
+- **Responsive FAB:** On mobile devices, utilizes a compact "Static" mode to preserve limited vertical space.
+- **Universal API:** Built on a `browser`/`chrome` abstraction layer for 100% compatibility across Gecko and Chromium engines.
 
 ---
 
-## Customization
+## ⚙️ Settings & Privacy
 
-### Change Home Page
+Access the new **WebGator Popup Menu** to customize your experience:
 
-```js
-const START_PAGE = "https://your-homepage-url";
-```
-
-### Change Trigger Area
-
-```js
-const TOP_TRIGGER_HEIGHT = 60;
-const CENTER_TRIGGER_WIDTH = 180;
-```
+- **Per-Site Toggles:** Enable or disable WebGator on specific domains.
+- **Mode Selector:** Choose between Floating or Static per site.
+- **Global Homepage:** Set your custom "Home" URL with built-in validation.
+- **Storage Sync:** All settings are stored via `storage.local`, ensuring fast load times and minimal resource impact.
 
 ---
 
-## Design Philosophy
+## 🕹 How To Use
 
-* Minimal, not distracting
-* Appears only when intentional
-* Browser-native feel
-* Performance first
-* No visual pollution
+### Reveal the Bar
 
----
+- **In Floating Mode:** Always visible (unless disabled).
+- **In Static Mode:** Scroll **UP** or hover your mouse at the **top 50px** of the viewport.
 
-## Ideal Use Cases
+### Drag & Position
 
-* Power users
-* Large screens
-* Touchpad / mouse workflows
-* Clean UI enthusiasts
-* Custom browser extensions
+- Click and hold the empty space between buttons to move the bar. Release to save the position automatically.
+
+### Settings
+
+- Click the WebGator icon in your browser's extension tray to change the homepage or reset the bar's position.
 
 ---
 
-## Summary
+## 🧱 Technical Summary
 
-✔ Smart
-✔ Adaptive
-✔ Minimal
-✔ Fast
-✔ Professional
+| Feature              | Specification                                           |
+| :------------------- | :------------------------------------------------------ |
+| **Manifest Version** | V3 (Modern, Secure, Faster)                             |
+| **Permissions**      | Minimal (`storage`)                                     |
+| **Compatibility**    | Chrome, Edge, Brave, Firefox (Desktop/Android)          |
+| **Performance**      | Throttled MutationObservers & RAF-based scroll logic    |
+| **Z-Index**          | `2147483647` (Ensures visibility over all web elements) |
 
-This navigation bar behaves like a **native browser feature**, not a website overlay.
+---
+
+## 🎯 Design Philosophy
+
+WebGator is designed for users who want a **clean, full-screen browsing experience** without losing the utility of navigation buttons. It behaves like a **native part of the browser's chrome**, adopting the colors of the web while staying out of the way until you need it.

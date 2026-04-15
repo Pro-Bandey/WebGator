@@ -1,67 +1,67 @@
 # WebGator
 
 <div align="center" id="top"> 
-  <img style="width:150px; border-radius:50%" src="./icons/icon.png" alt="WebGator" />
+  <img style="width:120px; border-radius:30px" src="./src/icon.png" alt="WebGator Logo" />
+  <h1>WebGator v9.0</h1>
+  <p><b>Advanced Cross-Browser Navigation Utility</b></p>
+  <p>
+    <img src="https://img.shields.io/badge/Chrome-v88+-blue?logo=google-chrome&logoColor=white" alt="Chrome Support" />
+    <img src="https://img.shields.io/badge/Firefox-v109+-orange?logo=firefox-browser&logoColor=white" alt="Firefox Support" />
+    <img src="https://img.shields.io/badge/Manifest-V3-green" alt="Manifest V3" />
+  </p>
 </div>
 
+WebGator is a powerful, lightweight browser extension that injects a native-looking navigation bar into every webpage. Designed for power users and installed PWAs, it provides essential navigation controls (**Back, Forward, Reload, Home, Close**) without requiring access to the browser's top UI.
 
-<p  style="align:left;">
-A simple Chrome extension that provides a floating navigation bar with **Back**, **Forward**,  **Reload**, **Home**, and **Close** buttons. The navigation bar appears when the user's mouse hovers near the top of the page. It's a great tool to easily navigate between pages without having to use the browser's built-in navigation buttons.
+## 🌟 Features
+
+- **Dual Display Modes**:
+  - 🖱️ **Floating**: A draggable, pill-shaped bar that stays exactly where you put it.
+  - 📌 **Static**: A sleek top-bar that pushes page content down and auto-hides when scrolling.
+- **Native UI & Theming**: Automatically extracts the background color of the current website to blend perfectly with the page (Light/Dark mode support).
+- **Drag & Drop**: In floating mode, move the bar anywhere. It remembers its position per domain.
+- **Firefox Mobile Optimized**: Full touch-event support for Firefox on Android, including a hidden tooltip system for touchscreens.
+- **Smart Auto-Hide**: Static bar hides on scroll-down and reappears instantly when scrolling up or hovering near the top edge.
+- **Custom Homepage**: Set your own destination for the Home button via the Settings Popup.
+
+---
+
+## 🛠️ Usage & Modes
+
+### 1. Floating Mode (Default)
+
+Click and drag the bar to position it anywhere on your screen. WebGator will remember this position specifically for that domain, ensuring it never covers important site content.
+
+### 2. Static Mode
+
+The bar is fixed at the top center. Unlike other extensions, WebGator **pushes the website content down** so it never hides the site's original header or navigation menus. It auto-hides after 1.5 seconds of inactivity to keep your view clean.
+
+---
+
+## ⚙️ Installation
+
+### Chrome / Edge / Brave
+
+1. [Download](https://gitfolderdownloader.github.io/?=https://github.com/Pro-Bandey/WebGator/chrome&name=WebGator) the chrome version and unzip it.
+2. Open `chrome://extensions/`.
+3. Enable **Developer mode** (top-right).
+4. Click **Load unpacked** and select the extension folder.
+
+### Firefox (Desktop & Android)
+
+- [Intall](https://addons.mozilla.org/en-US/firefox/addon/webgator/)
+
+---
+
+## [Take a full Overview](Overview.md)
+
+## Give a Star ⭐
+
+If WebGator makes your browsing easier, please give this repository a star! It helps the project grow and reach more users.
+
+---
+
+<p align="center">
+  Developed with ❤ by <b>Pro Bandey</b><br>
+  <i>Making the web more navigable, one tab at a time.</i>
 </p>
-
-## Give a Star ⭐ 
-If you like this project give this  repo a star ⭐ and we very thankful if you give this repo a star ⭐ 
-
-## Features
-
-- **Back Button**: Navigate back to the previous page in history.
-- **Forward Button**: Go forward to the next page in history.
-- **Reload Button**: Reload the current page.
-- **Home Button**: Change current tab in our online version [homepage](https://online-homepage.vercel.app/)
-- **Close Button**: Close Current tab if you open else if chrome Open
-- The floating navigation bar appears when the mouse cursor is within 50px of the top of the page.
-
-## [Take a full Overview](https://github.com/Pro-Bandey/WebGator/blob/main/Overview.md)
-
-## Installation
-
-- **[Download](https://github.com/Pro-Bandey/WebGator/releases)** Latest Version **or**
-- clone this clone via desktop, cli or **or**
-Create a folder on your computer and save, copy, or download the following files inside the folder:
-
-* `WebGator/`
-  - `|__manifest.json`
-  - `|__content.js`
-  - `|__style.css`
-  - `|__icons/`
-    - `|__16.png`
-    - `|__32.png`
-    - `|__48.png`
-    - `|__icon.png`
-
-### 2. Load the Extension into Chrome
-1. Open **Chrome** and go to `chrome://extensions/`.
-2. Enable **Developer mode** in the top-right corner.
-3. Click on **Load unpacked** and select the folder where you saved the extension files.
-
-### 3. Test the Extension
-- After loading the extension, open a webpage in Chrome.
-- Move your mouse to the top of the page (within 50px).
-- The floating navigation bar should appear at the top with **Back**, **Forward**, and **Reload** buttons.
-
-## How It Works
-
-- The extension uses a **content script** that adds a floating navigation div to every page you visit.
-- The navigation bar is only shown when the mouse is near the top of the page, providing a clean and unobtrusive experience.
-- It uses basic **JavaScript** to handle user actions on the buttons (back, forward, reload) and **CSS** to style and position the floating div.
-
-## OnwerShip
-- If you able publish our project in WebStore, Firefox add-on or edge add-on, you don't able to remove our identity completely
-- 50% ownership is our in you version of our property to show our identity 
-- If you make new changes like
-  - features
-  - improvements
-  - UI design
-  - resources
-- You are responsible create pr to main repo
-- then we like that changes we 5ake them for nnext version of WebGator1

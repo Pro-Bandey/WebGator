@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #202124;
+    }
+
+    body {
+      width: 280px;
+      padding: 16px;
+      margin: 0;
+      background: #ffffff;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #202124;
+    }
+
+    h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #dadce0;
+      color: #5f6368;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    select,
+    input[type="text"] {
+      width: 140px;
+      padding: 6px 8px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    select:focus,
+    input[type="text"]:focus {
+      border-color: #f44234;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 6px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      background: #f44234;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #b01515;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #dadce0;
+      color: #f44234;
+      font-weight: 500;
+    }
+
+    .btn-outline:hover {
+      background: #f8f9fa;
+      border-color: #d2e3fc;
+    }
+
+    .checkbox-wrap {
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    #status {
+      color: #188038;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 8px;
+      height: 16px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>WebGator Settings</h2>
+
+  <label class="checkbox-wrap">
+    <input type="checkbox" id="site-enabled"> Enable on this site
+  </label>
+
+  <label>Display Mode:
+    <select id="site-mode">
+      <option value="floating">Floating (Default)</option>
+      <option value="static">Static Top Bar</option>
+    </select>
+  </label>
+
+  <button id="reset-pos" class="btn btn-outline">Reset Floating Position</button>
+
+  <h3>Global Settings</h3>
+  <label style="display:block;">Homepage URL:
+    <input type="text" id="global-homepage" placeholder="https://example.com">
+  </label>
+  <button id="save-global" class="btn">Save Settings</button>
+  <div id="status"></div>
+
+  <script src="js/wg.popup.js"></script>
+</body>
+
+</html>
