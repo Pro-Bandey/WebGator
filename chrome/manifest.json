@@ -3,7 +3,7 @@
   "name": "WebGator",
   "description": "Native Chrome floating navigation bar with dynamic page color adoption and drag-and-drop support.",
   "version": "9.0",
-  "author": "MicroResearch Corporation®",
+  "author": "Pro Bandey",
   "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "action": {
