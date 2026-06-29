@@ -4,7 +4,7 @@
   "version": "9.0",
   "author": "Pro Bandey",
   "description": "Native Chrome floating navigation bar with dynamic page color adoption and drag-and-drop support.",
-  "homepage_url": "https://Pro-Bandey.github.io/Projects/?Pro=WebGator",
+  "homepage_url": "https://Pro-Bandey.github.io/?id==WebGator",
 
   "icons": {
     "16": "icons/16.png",
